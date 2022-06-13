@@ -21,18 +21,6 @@
 * **Mã môn học**: IS403
 * **Lớp học**: IS403.M21.HTCL
 * **Năm học**: 2021-2022
-## QUÁ TRÌNH MÔN HỌC
-<a name ="quatrinh"></a>
-### 1.Phân tích dữ liệu kinh doanh
-
-
-<a name ="colab"></a>
-### 2.COLAB ASSSIGNMENTS
-
-
-<a name ="QT"></a>
-### 3.QT IN CLASS
-
 ## GIẢNG VIÊN HƯỚNG DẪN
 <a name="giangvien"></a>
 **Nguyễn Đình Thuân**
