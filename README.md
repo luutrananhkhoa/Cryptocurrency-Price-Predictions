@@ -24,7 +24,7 @@
 ## GIẢNG VIÊN HƯỚNG DẪN
 <a name="giangvien"></a>
 **Nguyễn Đình Thuân**
-<br />
+ - 
 **Nguyễn Minh Nhựt**
 
 ## THÀNH VIÊN NHÓM
