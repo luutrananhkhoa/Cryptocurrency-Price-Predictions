@@ -23,9 +23,8 @@
 * **Năm học**: 2021-2022
 ## GIẢNG VIÊN HƯỚNG DẪN
 <a name="giangvien"></a>
-**Nguyễn Đình Thuân**
- - 
-**Nguyễn Minh Nhựt**
+* **Nguyễn Đình Thuân**
+* **Nguyễn Minh Nhựt**
 
 ## THÀNH VIÊN NHÓM
 <a name="thanhvien"></a>
