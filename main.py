@@ -4,7 +4,6 @@ from werkzeug.exceptions import HTTPException
 
 app = Flask(__name__)
 
-
 def get_candles(df, df_pred):
     data = []
     data_pred = []
@@ -20,14 +19,17 @@ def get_candles(df, df_pred):
     return [data, data_pred]
 
 
-@app.route('/getJson/<ticker>', methods=['GET'])
-def get_json_data(ticker='BTC-INR'):
-    df, df_pred = crypto_data(ticker, '3mo', "60m")  # get last 3 months data with 60min interval
+@app.route('/getJson/<ticker>/<type>', methods=['GET'])
+def get_json_data(ticker='BTC-USD',type = 'LSTM' ):
+    df, df_pred = crypto_data(ticker, '3mo', "60m") 
     df = df.dropna()
     df.reset_index(inplace=True)
     df['Datetime'] = df['Datetime'].dt.strftime('%Y-%m-%d %H:%M:%S')
-    # To be implemented for other algorithms
-    pred_LSTM, rmse_lstm = lstm(df)
+
+    if type == 'LSTM':
+        pred_LSTM, rmse_lstm = lstm(df)
+    else:
+        pred_LSTM, rmse_lstm = arima(df)
 
     array = df[['Close']].to_numpy(dtype='float')
     final = np.append(array, pred_LSTM)
@@ -35,7 +37,7 @@ def get_json_data(ticker='BTC-INR'):
     df_pred.reset_index(inplace=True)
     df_pred['Datetime'] = df_pred['Datetime'].dt.strftime('%Y-%m-%d %H:%M:%S')
 
-    response = jsonify(get_candles(df, df_pred.tail(15)))   # last 13 hrs data for pred
+    response = jsonify(get_candles(df, df_pred.tail(15))) 
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
@@ -53,4 +55,4 @@ def internal_error(error):
     return '', code
 
 
-app.run(host="0.0.0.0", port=5000, debug=True)  # ssl_context="adhoc"
+app.run(host="0.0.0.0", port=5000, debug=True)

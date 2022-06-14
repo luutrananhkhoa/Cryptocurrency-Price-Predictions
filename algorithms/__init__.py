@@ -20,3 +20,4 @@ import yfinance as yf
 
 from algorithms.get_data import crypto_data
 from algorithms.mf_LSTM import lstm
+from algorithms.mf_ARIMA import arima

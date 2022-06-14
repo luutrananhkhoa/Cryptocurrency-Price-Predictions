@@ -31,7 +31,7 @@ function show_plot() {
         xValueFormatString : "DD-MM-YYYY hh:mm:ss",
         dataPoints : dataPoints
       },{
-        type: "line", //Change it to "spline", "area", "column"
+        type: "line",
         name : 'Predicted',
         showInLegend: true,
         color: '#ff73b2 ',
@@ -42,7 +42,7 @@ function show_plot() {
     ],
   });
 
-  $.get("http://localhost:5000/getJson/"+ticker, function(data) {
+  $.get("http://localhost:5000/getJson/"+ticker+"/"+type, function(data) {
 
     for(var i = 0; i < data[0].length; i++){
       dataPoints.push({x: new Date(data[0][i].date), y: Number(data[0][i].close)});
